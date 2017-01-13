@@ -1,6 +1,14 @@
-<h1>
-Hello World!!
-</h1>
-<h3>
-your browser agent is {{agent}}
-</h3>
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<div>
+	<h1>Hello,{% if name %}{{name}}{% else %}Stranger{% endif %}</h1>
+	{% if known %}
+	<p>Happy to see u again</p>
+	{% else %}
+	<p>nice to see u</p>
+	{% endif %}
+</div>
+{{ wtf.quick_form(form)}}
+{% endblock %}
